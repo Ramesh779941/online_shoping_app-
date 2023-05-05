@@ -80,13 +80,15 @@ def open_demo_main_page():
 def login():
     username = username_entry.get()
     password = password_entry.get()
-    if username == "admin" and password == "pass":
+    if username == "standard_user" and password == "secret_sauce":
         # Redirect to the Demo Main Page
         root.destroy()
         open_demo_main_page()
+    elif username=='locked_out_user' and password == "secret_sauce":
+        error_label.config(text='sorry this user has been bannned')
     else:
         # Display an error message
-        error_label.config(text="Sorry, your account information is incorrect.")
+        error_label.config(text="User not found")
 
 # Create the main window
 root = Tk()
